@@ -7,8 +7,13 @@ import './KanbanBoard.css';
 
 const KanbanBoard = () => {
   const [data, setData] = useState(null);
-  const [groupingOption, setGroupingOption] = useState('status');
-  const [sortOption, setSortOption] = useState('priority');
+  const [groupingOption, setGroupingOption] = useState(
+    localStorage.getItem('groupingOption') || 'status'
+  );
+  const [orderingOption, setOrderingOption] = useState(
+    localStorage.getItem('orderingOption') || 'priority'
+  );
+
 
   useEffect(() => {
     // Fetch data from the API
@@ -20,7 +25,7 @@ const KanbanBoard = () => {
   };
 
   const handleSortChange = (option) => {
-    setSortOption(option);
+    setOrderingOption(option);
   };
 
   return (
@@ -29,11 +34,11 @@ const KanbanBoard = () => {
         <div className="kanban-board">
           <ControlPanel
             groupingOption={groupingOption}
-            sortOption={sortOption}
+            sortOption={orderingOption}
             onGroupingChange={handleGroupingChange}
             onSortChange={handleSortChange}
           />
-          <TicketList data={data} groupingOption={groupingOption} sortOption={sortOption} />
+          <TicketList data={data} groupingOption={groupingOption} sortOption={orderingOption} />
         </div>
       )}
     </div>
