@@ -1,0 +1,18 @@
+.kanban-board-container {
+    margin: 0 auto;
+  }
+  
+  .kanban-board {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 2px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  
