@@ -3,8 +3,17 @@ import React, { useState } from "react";
 import "./ControlPanel.css"; 
 
 const ControlPanel = ({ onGroupingChange, onSortChange }) => {
-  const [groupingOption, setGroupingOption] = useState("status");
-  const [orderingOption, setOrderingOption] = useState("priority");
+  const [groupingOption, setGroupingOption] = useState(
+    localStorage.getItem('groupingOption') || 'status'
+  );
+  const [orderingOption, setOrderingOption] = useState(
+    localStorage.getItem('orderingOption') || 'priority'
+  );
+
+  useEffect(() => {
+    localStorage.setItem('groupingOption', groupingOption);
+    localStorage.setItem('orderingOption', orderingOption);
+  }, [groupingOption, orderingOption]);
 
   const handleGroupingChange = (option) => {
     setGroupingOption(option);
