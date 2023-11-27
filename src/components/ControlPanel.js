@@ -14,8 +14,11 @@ const ControlPanel = ({ onGroupingChange, onSortChange }) => {
     localStorage.setItem('groupingOption', groupingOption);
     localStorage.setItem('orderingOption', orderingOption);
   }, [groupingOption, orderingOption]);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9d203e9bfc6d3584cf7bae1af7f1441368b0d48a
 
   const handleGroupingChange = (option) => {
     setGroupingOption(option);
